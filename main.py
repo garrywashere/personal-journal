@@ -24,7 +24,7 @@ def user_exists():
 
 @app.route("/")
 def index():
-    return "index"
+    return render_template("index.html", logged_in=True)
 
 @app.route("/user/register")
 def register():
@@ -33,6 +33,14 @@ def register():
 @app.route("/user/login")
 def login():
     return "login"
+
+@app.route("/user/profile")
+def profile():
+    return "logout"
+
+@app.route("/user/logout")
+def logout():
+    return "logout"
 
 @app.route("/pages/new")
 def new_page():

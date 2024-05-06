@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Modern Template</title>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='stylesheet.css') }}"
+        />
+    </head>
+    <body>
+        <header>
+            <h1>Journal</h1>
+            {% if not logged_in %}
+            <input type="button" value="Login" onclick="window.location.href = '/user/login'">
+            <input type="button" value="Register" onclick="window.location.href = '/user/register'">
+            {% else %}
+            <input type="button" value="Profile" onclick="window.location.href = '/user/profile'">
+            <input type="button" value="Logout" onclick="window.location.href = '/user/logout'">
+            {% endif %}
+        </header>
+        <main>{% block main %} {% endblock %}</main>
+    </body>
+</html>
